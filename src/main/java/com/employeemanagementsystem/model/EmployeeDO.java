@@ -5,20 +5,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Table(name="employee")
+@Table(name="employees")
 @Getter
 @Setter
 @NoArgsConstructor
 
-public class Employee {
+public class EmployeeDO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -32,5 +34,8 @@ public class Employee {
 	
 	@Column(name="email_id")
 	private String emailId;
+	
+	@ManyToOne
+	private DepartmentDO department;
 	
 }

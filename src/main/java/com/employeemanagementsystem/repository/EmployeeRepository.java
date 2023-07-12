@@ -1,11 +1,17 @@
 package com.employeemanagementsystem.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
-import com.employeemanagementsystem.model.Employee;
+import com.employeemanagementsystem.model.DepartmentDO;
+import com.employeemanagementsystem.model.EmployeeDO;
 
+public interface EmployeeRepository extends JpaRepository<EmployeeDO, Integer>{
+	
+	List<EmployeeDO> findByDepartment(DepartmentDO department);
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer>{
+	
+	
 
 }
